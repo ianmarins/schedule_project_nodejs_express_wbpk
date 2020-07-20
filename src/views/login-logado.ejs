@@ -1,0 +1,22 @@
+<!-- INCLUDES DO HTMLS AQUI NO EJS -->
+<%- include('includes/head') %>  
+<%- include('includes/nav') %>
+    <div class="container">
+      <div class="row"> 
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-8">
+          <h1 class="text-center my-3">Olá <%= user.email %></h1>
+          <p class="text-center lead">Voce precisa sair para cirar outra conta.</p>
+          
+          <!-- Icluindo as mensagens de erro global  -->
+          <%- include('includes/messages') %>
+          <!-- Formulário fazer o cadastro, veio do Bootsstrap -->
+            
+        </div>
+
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+<%- include('includes/footer') %>

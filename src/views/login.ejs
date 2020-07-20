@@ -1,0 +1,70 @@
+<!-- INCLUDES DO HTMLS AQUI NO EJS -->
+<%- include('includes/head') %>  
+<%- include('includes/nav') %>
+    <div class="container">
+      <div class="row"> 
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-8">
+          <h1 class="text-center my-3">Agenda</h1>
+          <p class="text-center lead">Autentique-se ou cadastre sua conta Abaixo</p>
+          
+          <!-- Icluindo as mensagens de erro global  -->
+          <%- include('includes/messages') %>
+          <!-- Formulário fazer o cadastro, veio do Bootsstrap -->
+          <div class="row">
+            <div class="col-lg">
+              <h4>Faça seu Cadastro</h4>
+
+              <p>Se voce ainda não possui uma conta, preecha o Fomulário abaixo</p>
+
+              <!-- A Action desse form e envar para a rota apontada via POST -->
+              <form action="/login/register" method="POST">
+                <!-- Passo o teken de seguarança SCRF de forma escondida hidden para o envio do from -->
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                <div class="form-group">
+                  <label>Cadastre seu E-mail</label>
+                  <input type="email" class="form-control" name='email' >
+                </div>
+                <!-- SSua Senha -->
+                <div class="form-group">
+                  <label>Crie sua senha</label>
+                  <input type="password" class="form-control" name='password'>
+                </div>
+                <button type="submit" class="btn btn-primary">Criar Minha Conta</button>
+              </form>
+
+            </div>
+
+            <!-- Formulario entrar no sistema, veio do Bootstrap -->
+            <div class="col-lg">
+              <h4>Faça seu Login</h4>
+
+              <p>Já possui uma conta? Autentique-se</p>
+
+              <!-- A Action desse form e envar para a rota apontada via POST -->
+              <form action="/login/login" method="POST">
+                <!-- Passo o teken de seguarança SCRF de forma escondida hidden para o envio do from -->
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                <!-- Do Form Email -->
+                <div class="form-group">
+                  <label>Seu e-mail</label>
+                  <input type="email" class="form-control" name='email' >
+                </div>
+                <!-- SSua Senha -->
+                <div class="form-group">
+                  <label>Sua Senha</label>
+                  <input type="password" class="form-control" name='password' >
+                </div>
+
+                <button type="submit" class="btn btn-primary">Entrar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+<%- include('includes/footer') %>

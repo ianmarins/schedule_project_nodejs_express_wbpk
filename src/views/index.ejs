@@ -1,14 +1,31 @@
-<%- include('includes/head'); %>
+<!-- INCLUDES DO HTMLS AQUI NO EJS -->
+<%- include('includes/head') %>  
+<%- include('includes/nav') %>
+    <div class="container">
+      <div class="row"> 
+        <div class="col-lg-2"></div>
 
-<section class="container">
-  <h1><%= csrfToken %></h1>
+        <div class="col-lg-8">
+          <h1 class="text-center my-3">Agenda</h1>
+          <p class="text-center lead">Sua Primeira Agenda Online</p>
 
-  <form action="/" method="post">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <label>Cliente</label>
-    <input type="text" name="cliente">
-    <button>Submit</button>
-  </form>
-</section>
+          <%- include('includes/messages') %>
+      
+          <div class="responsive-table">
+            <table class="table my-3">
+              <tr>
+                <td>Ian </td>
+                <td>Marins </td>
+                <td> 199935376</td>
+                <td> ianmarins@yahoo.com</td>
+              </tr>
+            </table>
+          </div>
 
-<%- include('includes/footer'); %>
+        </div>
+
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+<%- include('includes/footer') %>

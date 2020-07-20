@@ -7,7 +7,7 @@ mongoose.connect(process.env.STRINGDACONEXAODB, { useNewUrlParser: true, useUnif
     app.emit('pronto');
   })
   .catch(e => console.log(e));
-const session = require('express-session');
+const session = require('express-session'); //aqui e sessao do de login online do navegador
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const routes = require('./routes');
