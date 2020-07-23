@@ -9,23 +9,33 @@
           <h1 class="text-center my-3">Agenda</h1>
           <p class="text-center lead">Sua Primeira Agenda Online</p>
 
-          <%- include('includes/messages') %>
-      
+        <% include('includes/messages') %>
+
+        <% if(contatos.lenght !== 0) { %>
           <div class="responsive-table">
             <table class="table my-3">
-              <tr>
-                <td>Ian </td>
-                <td>Marins </td>
-                <td> 199935376</td>
-                <td> ianmarins@yahoo.com</td>
-              </tr>
+
+              <% contatos.forEach(contato => { %>
+                <tr>
+                  <td><%= contato.nome %></td>
+                  <td><%= contato.sobrenome %></td>
+                  <td><%= contato.email %></td>
+                  <td><%= contato.telefone %></td>
+                  <td><a href="/contato/index/<%= contato._id %>">Editar</a> </td>
+                  <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Deletar</a> </td>
+
+                </tr>
+              <% }); %>
             </table>
           </div>
+        <% } else { %> 
+            <p class="text-info lead" align="center" >Não existe contatos na sua agenda</p>  
+            <!-- <p class="text-center lead" >Não existe contatos na sua agenda</p>   -->
+        <% }; %>     
 
-        </div>
-
-        <div class="col-lg-2"></div>
       </div>
-    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
 
 <%- include('includes/footer') %>

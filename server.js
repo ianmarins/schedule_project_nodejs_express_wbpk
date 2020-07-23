@@ -1,12 +1,19 @@
+//IP DO MAQUINA VM GOOGLE 34.95.141.251
+
 require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-mongoose.connect(process.env.STRINGDACONEXAODB, { useNewUrlParser: true, useUnifiedTopology: true })
+
+mongoose.connect(process.env.STRINGDACONEXAODB, {
+   useNewUrlParser: true, 
+   useUnifiedTopology: true,
+   useFindAndModify: false })
   .then(() => {
     app.emit('pronto');
   })
   .catch(e => console.log(e));
+
 const session = require('express-session'); //aqui e sessao do de login online do navegador
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
